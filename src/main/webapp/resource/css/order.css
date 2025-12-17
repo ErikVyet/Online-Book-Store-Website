@@ -1,0 +1,305 @@
+@charset "UTF-8";
+
+body {
+    background-color: rgb(235, 235, 235);
+    overflow-x: hidden;
+}
+
+@media only screen and (min-width: 1024px) {
+
+    .container {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-areas: 
+            'header header'
+            'nav main'
+            'footer footer'
+        ;
+        grid-template-columns: 1fr 4fr;
+        grid-template-rows: 1fr 9fr 1fr;
+    }
+    
+    header {
+        display: flex;
+        background-color: white;
+        grid-area: header;
+    }
+    
+    .banner {
+        flex: 1 1 20%;
+    }
+    
+    .banner h1 {
+        height: 100%;
+        margin: 0;
+        text-align: center;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 2.5vw;
+        letter-spacing: 0.2vw;
+        align-content: center;
+        user-select: none;
+    }
+    
+    .navbar {
+        flex: 1 1 10%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        user-select: none;
+        background-color: rgb(252, 252, 252);
+    }
+    
+    .navbar-item {
+        flex-basis: 40%;
+        height: 70%;
+        text-align: center;
+        text-decoration: none;
+        align-content: center;
+        font-family: sans-serif;
+        font-size: 1.1vw;
+        font-weight: bold;
+        color: black;
+        padding-left: 10%;
+        padding-right: 10%;
+        transition: background-color 0.3s;
+    }
+    
+    .navbar-item:hover {
+        transition: all 0.3s;
+        background-color: lightgray;
+    }
+    
+    .searchbar {
+        flex: 1 1 25%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        user-select: none;
+        background-color: rgb(252, 252, 252);
+    }
+    
+    .searchbar input {
+        flex-basis: 80%;
+        height: 50%;
+        border: solid 1px;
+        border-radius: 100px;
+        font-size: 1.1vw;
+        text-indent: 3%;
+    }
+    
+    .searchbar button {
+        flex-basis: 10%;
+        background: none;
+        border: none;
+        padding-left: 0%;
+        padding-right: 0%;
+        cursor: pointer;
+    }
+    
+    .filterbar {
+        flex: 1 1 25%;
+        display: flex;
+        background-color: rgb(252, 252, 252);
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .filterbar select {
+        flex-basis: 50%;
+        height: 60%;
+        text-indent: 5%;
+        font-size: 1.1vw;
+        border: solid 1px;
+        border-radius: 100px;
+        outline: none;
+    }
+    
+    .filterbar button {
+        flex-basis: 10%;
+        height: 60%;
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-left: 3%;
+    }
+    
+    .user {
+        flex: 1 1 20%;
+        text-align: center;
+        align-content: center;
+        user-select: none;
+        background-color: rgb(252, 252, 252);
+        display: flex;
+	    align-items: center;
+	    justify-content: center;
+    }
+    
+    .user a {
+		flex: 0 0 15%;
+		height: 50%;
+		cursor: pointer;
+		border: none;
+		background: none;
+        padding: 3%;
+	}
+	
+	.user p {
+		margin: 0;
+		font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+		font-size: 1.1vw;
+	}
+    
+    .side-navbar {
+        grid-area: nav;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        row-gap: 1.5%;
+        overflow-y: auto;
+        user-select: none;
+    }
+    
+    .side-navbar-item {
+        display: flex;
+        text-decoration: none;
+        font-family: sans-serif;
+        font-size: 1.2vw;
+        padding: 5%;
+        align-items: center;
+        cursor: pointer;
+        transition:  background-color 0.2s;
+    }
+    
+    .side-navbar-item:hover {
+        transition: all 0.2s;
+        background-color: lightgray;
+        box-shadow: 5px 5px 5px gray;
+    }
+    
+    .side-navbar-item img {
+        margin-left: 5%;
+    }
+    
+    .side-navbar-item span {
+        color: black;
+        margin-left: 5%;
+        letter-spacing: 1px;
+    }
+    
+    hr {
+        width: 90%;
+    }
+    
+    main {
+        grid-area: main;
+        user-select: none;
+        justify-items: center;
+        min-width: 0;
+        min-height: 0;
+        align-content: center;
+    }
+
+    .order-container {
+        width: 97%;
+        height: 94%;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        background-color: white;
+    }
+
+    .order-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: sans-serif;
+        font-size: 1.2vw;
+        text-align: center;
+        box-shadow: 0.3vw 0.3vw 0.6vw lightgray;
+        overflow-y: auto;
+    }
+
+    .order-container tbody tr:nth-child(odd) {
+        background-color: rgb(245, 245, 245);
+    }
+
+    .order-table th {
+        padding: 1% 0%;
+        border-bottom: solid 0.1vw;
+    }
+
+    .order-table th:first-child {
+        width: 10%;
+    }
+
+    .order-table th:nth-child(2) {
+        width: 20%;
+    }
+
+    .order-table th:nth-child(3) {
+        width: 15%;
+    }
+
+    .order-table th:nth-child(4) {
+        width: 15%;
+    }
+
+    .order-table th:nth-child(5) {
+        width: 20%;
+    }
+
+    .order-container td {
+        padding: 0.6% 0%;
+        border-bottom: solid 0.1vw lightgray;
+    }
+    
+    .order-container td:last-child a,
+    .order-container td:last-child button{
+        font-family: sans-serif;
+        font-size: 1.1vw;
+        color: white;
+        padding: 3% 6%;
+        border-radius: 0.2vw;
+        border: none;
+        cursor: pointer;
+    }
+
+    .order-container td:last-child a {
+        background-color: rgb(0, 123, 255);
+        text-decoration: none;
+        transition: background-color 0.2s, color 0.2s;
+        &:hover {
+            background-color: rgb(0, 100, 210);
+            color: #e2e6ea;
+            transition: background-color 0.2s, color 0.2s;
+        }
+    }
+
+    .order-container td:last-child button {
+        background-color: rgb(220, 53, 69);
+        transition: background-color 0.2s, color 0.2s;
+        &:hover {
+            background-color: rgb(180, 40, 55);
+            color: #e2e6ea;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        &:disabled {
+            background-color: gray;
+            color: #e2e6ea;
+            cursor: not-allowed;
+        }
+    }
+    
+    footer {
+        grid-area: footer;
+        background-color: white;
+        text-align: center;
+        font-style: italic;
+        font-size: 1.2vw;
+        user-select: none;
+        align-content: center;
+    }
+
+}

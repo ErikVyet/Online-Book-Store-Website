@@ -1,0 +1,142 @@
+@charset "UTF-8";
+
+body {
+    background: linear-gradient(to right, #74ebd5, #ACB6E5);
+}
+
+@media only screen and (min-width: 1024px) {
+
+    .register-form {
+        position: absolute;
+        top: 5%;
+        left: 35%;
+        width: 30%;
+        height: 90%;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 8px 8px 8px gray;
+        display: flex;
+        flex-direction: column;
+        font-family: sans-serif;
+        row-gap: 2%;
+        user-select: none;
+    }
+
+    .register-form h2 {
+        margin: 0;
+        flex: 0 0 8%;
+        text-align: center;
+        font-style: italic;
+        align-content: center;
+    }
+
+    .register-input-group {
+        flex: 0 0 8%;
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        margin: 0 auto;
+
+    }
+
+    .register-input-group label {
+        flex: 0 0 40%;
+        font-size: 13px;
+        align-content: center;
+    }
+
+    .register-input-group label img {
+        margin: -1% 0%;
+    }
+
+    .register-input-group input {
+        flex: 0 0 50%;
+        border: solid 1px;
+        border-color: gray;
+        border-radius: 2px;
+        text-indent: 2%;
+        outline: none;
+    }
+
+    .register-form > div:nth-last-child(6) div {
+        flex: 0 0 60%;
+        display: flex;
+    }
+
+    .register-form > div:nth-last-child(6) div input {
+        flex: 0 0 70%;
+        border-color: gray;
+        text-indent: 2%;
+    }
+
+    .register-form > div:nth-last-child(6) div hr {
+        flex: 0 0 2%;
+        visibility: hidden;
+    }
+
+    #code {
+        flex: 0 0 25%;
+        cursor: pointer;
+        font-size: 12px;
+        color: #0d6efd;
+        background-color: white;
+        border: solid 1px;
+        border-radius: 2px;
+        transition: color 0.2s, background-color 0.2s;
+        &:disabled {
+            cursor: not-allowed;
+            color: gray;
+            border-color: gray;
+        }
+    }
+
+    .register-form > p {
+        flex: 0 0 4%;
+        margin: 0;
+        width: 80%;
+        margin: 0 auto;
+        font-size: 13px;
+        color: red;
+        align-content: center;
+    }
+
+    .register-form > div:nth-last-child(2) {
+        flex: 0 0 6%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .register-form > div:nth-last-child(2) button {
+        height: 100%;
+        padding: 0% 4%;
+        color: white;
+        background-color: #0d6efd;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+        &:hover {
+            color : #e2e6ea;
+            background-color: #0b5ed7;
+            transition: color 0.2s, background-color 0.2s;
+        }
+    }
+
+    .register-form > div:last-child {
+        flex: 0 0 6%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+    }
+
+    .register-form > div:last-child a {
+        color: black;
+        transition: color 0.2s;
+        &:hover {
+            color: orange;
+            transition: color 0.2s;
+        }
+    }
+
+}
