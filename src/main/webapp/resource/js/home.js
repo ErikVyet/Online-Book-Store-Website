@@ -23,6 +23,7 @@ async function changeActiveBookFromRecommended(index) {
 	const activeBookDetail = document.getElementById('active-book-detail');
 
 	activeImage.alt = book.id;
+	activeImage.src = book.image;
 	activeTitle.textContent = book.title;
 	activeAuthor.textContent = book.author;
 	activeRating.textContent = book.rating;

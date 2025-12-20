@@ -489,6 +489,7 @@ body {
 	    flex: 0 0 15%;
 	    width: 90%;
 	    font-size: 1.4vw;
+	    white-space: nowrap;
 	}
 	
 	.discover-active-book-container > div:last-child h3 {
@@ -519,6 +520,7 @@ body {
 	    color: white;
 	    text-overflow: clip;
 	    font-size: 1vw;
+	    white-space: pre-wrap;
 	}
 	
 	.discover-active-book-container > div:last-child a {
