@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializationContext;
@@ -56,8 +58,8 @@ public class UserController extends HttpServlet {
     
     protected void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
-		String password = request.getParameter("password");
 		String email = request.getParameter("email");
+		String password = DigestUtils.sha256Hex(request.getParameter("password") + email);
 		UserDTO user = UserDAO.getUser(username, password, email);
 		if (user != null) {
 			HttpSession session = request.getSession();
@@ -142,7 +144,7 @@ public class UserController extends HttpServlet {
             	user.setAddress(address);
             	user.setEmail(email);
             	user.setUsername(username);
-            	user.setPassword(password);
+            	user.setPassword(DigestUtils.sha256Hex(password + email));
             	user.setRole(Role.customer);
             	user.setCreated(Date.valueOf(LocalDate.now()));
             	session.invalidate();
@@ -177,7 +179,7 @@ public class UserController extends HttpServlet {
     	if (originalCode != null) {
     		if (originalCode.equals(code)) {
     			if (password.equals(confirmPassword)) {
-    				if (UserDAO.updatePassword(email, password)) {
+    				if (UserDAO.updatePassword(email, DigestUtils.sha256Hex(password + email))) {
     					session.invalidate();
     					request.getRequestDispatcher("./login.jsp").forward(request, response);
     				}
