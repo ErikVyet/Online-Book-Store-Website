@@ -93,8 +93,9 @@ public class BookController extends HttpServlet {
     		return;
     	}
     	
+    	Boolean guest = (Boolean)session.getAttribute("GUEST");
     	UserDTO userDTO = (UserDTO) session.getAttribute("USER");
-    	if (userDTO.getRole() == Role.admin) {
+    	if (guest == null && userDTO != null && userDTO.getRole() == Role.admin) {
     		BufferedReader reader = request.getReader();
     		SearchModel search = gson.fromJson(reader, SearchModel.class);
     		List<BookDTO> result = BookDAO.getListByTitle(search.getContent());
@@ -129,8 +130,9 @@ public class BookController extends HttpServlet {
     		return;
     	}
     	
+    	Boolean guest = (Boolean)session.getAttribute("GUEST");
     	UserDTO userDTO = (UserDTO) session.getAttribute("USER");
-    	if (userDTO.getRole() == Role.admin) {
+    	if (guest == null && userDTO != null && userDTO.getRole() == Role.admin) {
     		BufferedReader reader = request.getReader();
     		String option = request.getParameter("option");
     		boolean asc = gson.fromJson(reader, boolean.class);
