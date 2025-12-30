@@ -128,7 +128,7 @@
 %>
 							<tr>
 	                            <td><%=book.getTitle()%></td>
-	                            <td><input name="quantity" type="number" value="<%=item.getQuantity()%>" readonly></td>
+	                            <td><input name="quantity" type="number" value="<%=item.getQuantity()%>" max="<%=book.getQuantity()%>" readonly></td>
 	                            <td><%=book.getPrice()%> VNĐ</td>
 	                            <td>
 	                                <button name="btnEdit" onclick="itemEditMode(this.parentNode)">Edit</button>
